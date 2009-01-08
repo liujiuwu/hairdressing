@@ -1,0 +1,28 @@
+<%  user = User.find(comment.user_id) %>
+<div id="<%="comment_#{comment.id}"%>">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td  style="padding-right:5px;" valign="top"><div class="face"><% if user.logo%> <%= image_tag(url_for_file_column(user, 'logo','thumb'))%><% else %><img src="/images/none_header.gif"/><% end %></div></td>
+      <td width="100%" valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="comment_info">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="comment_name"><%= link_to(display_name_for(user),user_path(user),:target => '_blank')%> 发表于 <%= time_format(comment.created_at)%></td>
+                  <td align="right"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="line-height:170%;padding:5px 0"><%= comment.comment%></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+  <%= render(:partial => "shared/spacer") %>
+</div>

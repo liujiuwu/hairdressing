@@ -1,0 +1,19 @@
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= error_messages_for :business %>
+    <% form_for(:business,@business,:url => user_salon_businesses_path(@salon)) do |f| %>
+      <ul class="form">   
+        <li class="field">
+          <label for="business_name">商业合作标题：</label><br />
+          <%= f.text_field :title,:style => "width:300px;" %>
+        </li>
+        <li class="field">
+          <label for="business_description">商业合作内容：</label><br />
+          <%= f.text_area :description,:cols => "80",:rows => "8" %>
+        </li>
+        <li class="field"><%= f.submit "保存" %> | <%=link_to '商业合作信息管理',user_salon_businesses_path(@salon)%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

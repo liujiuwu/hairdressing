@@ -1,0 +1,995 @@
+<% title("分类信息") %>
+<%= render :partial => "/shared/search_salons" %>
+<style>
+    /* Copyright 2008 Google, Inc. All Rights Reserved */body{color:#000;background-color:#fff;margin-top:3;font-family:arial,sans-serif;margin-bottom:0;padding-bottom:0}.SubTab{padding-top:2px;padding-bottom:2px;border-top:2px solid #39c}.SubTabOn{padding-top:2px;border-left:2px solid #39c;border-right:2px solid #39c;border-bottom:2px solid #39c;background-color:#e5ecf9;font-weight:bold}.SubTabOn a{text-decoration:none;;color:#000;;font-weight:bold}input,select{font-size:12px}a,.csl{text-decoration:underline;color:#00c;cursor:pointer}a img{border:0}.sprs{width:100%;background:#d5dff3;color:#000;padding:5px 1px 4px;border:0;border-top:1px solid #36c !important}.csct{font-weight:bold;background-color:#d5dff3;border-left:2px solid #36c;border-right:2px solid #36c;border-bottom:2px solid #36c;text-align:center;padding:3 8 0 8px}.cst{border-top:2px solid #36c;text-align:center;padding:3 8 0 8px}.cset{border-top:2px solid #36c}.Tab3{font-weight:bold;background-color:#d5dff3;border-left:1px solid #36c;border-right:1px solid #36c;border-top:1px solid #36c;text-align:center}.Tab4{border-bottom:1px solid #36c;text-align:center}.csp{position:absolute;visibility:hidden;padding:6px;z-index:10100;background:#fff;border-top:1px solid #c9d7f1;border-right:1px solid #36C;border-bottom:1px solid #36C;border-left:1px solid #a2bae7}.csst{width:100%;border:0}.Pop1{padding:6px;border:5px solid #c9d7f1}.GrayRow{background-color:#f1fcff}.cshlr{background-color:#d0d8ff}.cshrr{background-color:#ffeac0}.csh{color:#a8a8a8}.csmf{font-size:85%}.cssf{font-size:75%}.cstf{font-size:12px}.MouseHoverRow{background-color:#e8f4f7}.WebSource{font-size:10px}.WebSource A:active{color:green}.WebSource A:visited{color:green}.WebSource A:link{color:green}.TitleWidth{width:auto}.AutoWidth{width:auto}.AttributeWidth{width:10%}.StarPicWidth{width:16}TABLE.TableHeader{border-top:0 solid #ccc}.Bar1{background-image:url(/shenghuo/images/header_bg1.gif);background-position:bottom;background-repeat:repeat-x;background-color:#e4e9f3;border-right:1px solid #ccc;font-weight:bold;color:#000;padding:6 3 0 3px}.Bar2{background-image:url(/shenghuo/images/header_bg.gif);background-position:bottom;background-repeat:repeat-x;background-color:#e4e9f3;border-right:1px solid #ccc;font-weight:bold;color:#000;padding:6 3 0 3px}.Bar3{background-color:#e4e9f3;border-top:1px solid #a6a6a6;border-right:1px solid #ccc;font-weight:bold;color:#000;padding:3 3 0 3px}.Bar4{background-color:#e4e9f3;border-top:1px solid #fff;border-right:1px solid #ccc;font-weight:bold;color:#000;padding:3 3 0 3px}.Bar4_nobold{background-color:#e4e9f3;border-top:1px solid #fff;border-right:1px solid #ccc;color:#000;padding:3 3 0 3px}.Bar4_hover{background-color:#ffeac0;border-top:1px solid #fff;border-right:1px solid #ccc;font-weight:bold;color:#000;padding:3 3 0 3px}.pnp{font-size:12pt;font-weight:bold;color:#00c;text-align:right;vertical-align:top}.pnc{color:#a00;font-size:10pt;font-weight:bold;text-align:center}.pnpg{text-align:center;font-size:10pt;color:#000}.pnn{font-size:12pt;font-weight:bold;color:#00c;text-align:center;vertical-align:top}#sprc{background-color:#e8eef7;width:170px;padding:5px;vertical-align:top;top:0}#spff{width:170px;position:absolute}.spsm{width:168px;height:200px;border:1px solid #00C}.spbm{width:100%;height:100%;overflow:hidden}.sprt,.sprft{border:1px solid #ccc;line-height:140%}tbody#spras td{border-bottom:1px solid #eee;padding:6 0 6 3px}.spap{padding:2px;margin:5px 3px 5px 3px;white-space:nowarp}#spmvmt{width:100%;position:relative}#spmvlc{position:absolute;top:0;left:0;width:350px;height:0;overflow-y:auto;overflow-x:hidden}#spmvrc{position:relative;left:350px;margin-right:350px}.sbarf{border-bottom:1px solid #a6a6a6;padding:2 3 3 3px;vertical-align:top}.sbr{background-image:url(/shenghuo/images/header_bg3.gif);background-position:center bottom;background-repeat:repeat-x;line-height:140%}.sboh{background-color:#ffeac0;background-image:url(/shenghuo/images/header_bg3_1.gif);background-position:center bottom;background-repeat:repeat-x}.sbsa{background-image:url(/shenghuo/images/header_bg1.gif);background-position:center top;background-repeat:repeat-x;background-color:#fff}.sbi{width:100%}.sbseb{border-top:#f7f7f7 solid 1px;border-left:#f7f7f7 solid 1px;border-right:#96969D solid 1px;border-bottom:#96969D solid 1px;background-color:#ebecec;float:right;font-size:12px;text-align:center;vertical-align:middle;cursor:pointer;padding:1px;line-height:120%}.sbsm{font-family:simsun;float:right;margin:0 -3px 0 -8px}.sbasc{background-color:#fff;border:1px solid #bbb;width:100%}.sbwd{background-image:url(/shenghuo/images/arrow.gif);background-position:right center;background-repeat:no-repeat}.sbas{padding:1px 3px 1px 3px;border:0;width:100%;vertical-align:middle}.short_msg{white-space:pre-wrap;white-space:-moz-pre-wrap}.goog-date-picker th{font:menu;text-align:center}.goog-date-picker td{font:menu;text-align:center;vertical-align:middle;border:1px solid white;border-width:0 1px 1px 0;padding:1px 3px}.goog-date-picker{-moz-user-focus:normal;-moz-user-select:none;position:absolute;border:1px solid black;float:left;font:menu;padding-left:1px;background:#fff}.goog-date-picker-menu{position:absolute;background:threedface;border:1px solid gray;-moz-user-focus:normal}.goog-date-picker-menu ul{list-style:none;margin:0;padding:0}.goog-date-picker-menu ul li{cursor:default}.goog-date-picker-menu-selected{background:#ccf}.goog-date-picker th{color:gray;font-size:0.9em}.goog-date-picker td div{float:left}.goog-date-picker button{padding:0;margin:1px;border:1px solid gray}.goog-date-picker-week{padding:1px 3px}.goog-date-picker-wday{padding:1px 3px}.goog-date-picker-today-cont{text-align:left !important}.goog-date-picker-none-cont{text-align:right !important}.goog-date-picker-head td{text-align:center}.goog-date-picker-month{width:12ex}.goog-date-picker-year{width:6ex}.goog-date-picker table{border-collapse:collapse}.goog-date-picker-selected{background:#ccf !important;color:#00f !important}.goog-date-picker-today{font-weight:bold !important}.goog-date-picker-other-month{-moz-opacity:0.3;filter:Alpha(Opacity=30)}.goog-date-picker-current-month{cursor:pointer}.sat{background:#fcc}.sun{background:#fcc;color:red}#spip{position:absolute;top:0;left:0;width:100%;text-align:center}#spilt{background-color:#ff8;font-weight:bold}#spwlt{}#spelt{background-color:#c00;color:#fff;font-weight:bold}.csfs{line-height:200%;padding:0 5px 0 5px}.csrctl{width:20px;height:20px;background-image:url(/shenghuo/images/round_corner.gif)}.csrctr{width:20px;height:20px;background-image:url(/shenghuo/images/round_corner.gif);background-position:20px 0}.csrcbr{width:20px;height:20px;background-image:url(/shenghuo/images/round_corner.gif);background-position:20px 20px}.csrcbl{width:20px;height:20px;background-image:url(/shenghuo/images/round_corner.gif);background-position:0 20px}.csrct{background:#fff;border-top:1px solid #ababab}.csrcl{background:#fff;border-left:1px solid #ababab}.csrcr{background:#fff;border-right:1px solid #ababab}.csrcb{background:#fff;border-bottom:1px solid #ababab}.cssrc{width:4px;height:4px;overflow:hidden}.csnlb{background-image:url(/shenghuo/images/nav_logo.gif)}.csmbb{background-image:url(/shenghuo/images/map_btns.gif)}.csbt{font-weight:bold}.spmvi{width:auto}.csrf{padding:0 14px;line-height:150%}.csrts{font-size:14px}.csrfc{color:#666}
+    </style>
+<div class="module">
+    <div class="moduleTitle"><%= yield(:title) %></div>
+    <div class="main_module">
+        <%  @infos.each do |info| %>
+        <dl class="listContent">
+            <dt>
+                <a href="/infos/<%=info.id%>" target="_blank"><%=info.title%></a>(<a href="/fang1/" class="Addr">深圳</a>-<a href="/fang1/0199.htm" class="Addr">罗湖</a>)
+            </dt>
+            <dd><%= dtfmt(info.created_at)%></dd>
+            <dd ><%=info.user.login%></dd>
+            <dd class="orgNum"><%=period_of_validity_name(info)%></dd>
+        </dl>
+        <% end %>
+    </div>
+    <div class="pagination_bar"><%= xwill_paginate @infos %></div>
+
+    <table class="sprs" cellpadding="0" cellspacing="0">
+    <tbody>
+
+        <tr>
+            <td>
+                <span>
+                    <span>
+                        <span name="类别"
+                              style="padding: 0 5px 0 5px; font-weight:bold;"
+                              value="0|||出租"
+                              id="spha_0">
+                        出租</span>
+                        <span name="类别" class="csl" style="padding: 0 5px 0 5px;"
+                              onclick="CALL('sh.SearchBox.searchByClickSubItemType','房屋', '类别', '出售')"
+                              value="0|||出售"
+                              id="spha_1">
+                        出售</span>
+
+                        <span name="类别" class="csl" style="padding: 0 5px 0 5px;"
+                              onclick="CALL('sh.SearchBox.searchByClickSubItemType','房屋', '类别', '合租')"
+                              value="0|||合租"
+                              id="spha_2">
+                        合租</span>
+                    </span>
+                    <span name="小区" class="csl" style="padding: 0 5px 0 5px;"
+                          id="havn小区"
+                          onclick="CALL('sh.SearchBox.searchByClickItemType','小区')"
+                          value="小区">楼盘</span>
+                </span>
+            </td>
+            <td id="prs"
+                align="right" nowrap="nowrap" >
+            <font size="-1">约有<b id="ptr">759129</b>项搜索结果，以下是第<b id="psn">121</b><b>-</b><b id="pen">140</b>项&nbsp;</font></td>
+
+        </tr>
+    </tbody>
+</table>
+<table cellpadding="0" cellspacing="0" class="csst">
+    <form id="spmf" onsubmit="return false;">
+        <colgroup>
+            <col />
+            <col style="width:200px;" />
+        </colgroup>
+
+        <tr>
+            <td valign="top">
+                <div style="background-color:#E8EEF7;">
+                    <div id="spsd"></div><div id="spds" ><span style="font-weight:bold;" class="cstf csfs"><nobr>深圳:</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '福田区', false, {index:'0',env:'district_list'});"><nobr>福田区</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '罗湖区', false, {index:'1',env:'district_list'});"><nobr>罗湖区</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '南山区', false, {index:'2',env:'district_list'});"><nobr>南山区</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '盐田区', false, {index:'3',env:'district_list'});"><nobr>盐田区</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '宝安区', false, {index:'4',env:'district_list'});"><nobr>宝安区</nobr></span><span class="csl cstf csfs" onclick="CALL('sh.SearchPageMapView.clearLocationRestrict'); CALL('sh.SearchBox.searchByClick', '地区', '龙岗区', false, {index:'5',env:'district_list'});"><nobr>龙岗区</nobr></span></div><input type="hidden" id="spd_福田区" value="园岭,南园,福田,沙头,梅林,华富,莲花,香密湖" /><input type="hidden" id="spd_罗湖区" value="黄贝,蛟湖,南湖,桂园,翠竹,笋岗,东湖,莲塘" /><input type="hidden" id="spd_南山区" value="南头,南山,沙河,西丽,蛇口,招商,粤海" /><input type="hidden" id="spd_盐田区" value="盐田,梅沙,沙头角" /><input type="hidden" id="spd_宝安区" value="新安,光明,西乡镇,福永,沙井,松岗,公明,石岩,龙华,观澜" /><input type="hidden" id="spd_龙岗区" value="龙岗,平湖,布吉,横岗,坪地,坪山,坑梓,葵涌,大鹏,南澳" /><input type="hidden" id="spda" value="地区" /><input type="hidden" id="spdl" value="福田区,罗湖区,南山区,盐田区,宝安区,龙岗区" />
+                </div>
+
+                <div id="communityResult" style="background-color:#E8EEF7;padding:5px;display:none">
+                </div>
+                <table border="0" cellpading="0" cellspacing="0"
+                       class="csst sprft">
+                    <colgroup>
+                        <col class="TitleWidth" />
+                        <col class="AttributeWidth" />
+                        <col class="AttributeWidth" />
+                        <col class="AttributeWidth" />
+                        <col class="AttributeWidth" />
+
+                        <col class="AttributeWidth" />
+                        <col class="AttributeWidth" />
+                        <col style="display:none;" />
+                    </colgroup>
+                    <tbody id="spar">
+                        <tr class="sbr csmf">
+                            <td class="sbarf" style="border-right:1px solid #CCCCCC">
+                                <div style="width:170px;height:1;overflow:hidden;"></div>
+                                <span style="font-weight:bold;">
+
+                                    房屋信息
+                                </span><br>
+                                <table class="csst cstf" cellpadding="0" cellspacing="0"><tr>
+                                        <td width="1"><nobr>包含关键字:
+                                                <input id="sbkw" type="text"
+                                               value="" maxlength=512 ></nobr></td>
+                                        <td><input type=submit value="搜索"
+                                                   id="sbs" /></td>
+                                </tr></table>
+                            </td>
+                            <td class="sbarf" id="sbarf价格"
+                                name="sbarf" style="border-right:1px solid #CCCCCC">
+                                <div style="width:68px;height:1;overflow:hidden;"></div>
+
+                                <span id="sbseb价格" class="sbseb">排序</span><b id="sbsm价格" class="sbsm"></b>
+                                <span style="font-weight:bold;">价格</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai价格', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+                                        <colgroup>
+                                            <col/>
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+                                        <tr>
+
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai价格" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai价格">
+                                        <div id="sosbai价格_0"
+                                             internalValue="1||2000.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '1||2000.0|', '￥2,000以下');" nowrap>
+                                            ￥2,000以下
+                                        </div>
+                                        <div id="sosbai价格_1"
+                                             internalValue="3|2000.0|3000.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '3|2000.0|3000.0|', '￥2,000至￥3,000');" nowrap>
+                                            ￥2,000至￥3,000
+                                        </div>
+
+                                        <div id="sosbai价格_2"
+                                             internalValue="3|3000.0|4000.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '3|3000.0|4000.0|', '￥3,000至￥4,000');" nowrap>
+                                            ￥3,000至￥4,000
+                                        </div>
+                                        <div id="sosbai价格_3"
+                                             internalValue="3|4000.0|6000.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '3|4000.0|6000.0|', '￥4,000至￥6,000');" nowrap>
+                                            ￥4,000至￥6,000
+                                        </div>
+                                        <div id="sosbai价格_4"
+                                             internalValue="2|6000.0||"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '2|6000.0||', '￥6,000以上');" nowrap>
+                                            ￥6,000以上
+                                        </div>
+                                        <div id="sosbai价格_5"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai价格', '', '不限');" nowrap>
+
+                                            不限
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="sbarf" id="sbarf地区"
+                                name="sbarf" style="border-right:1px solid #CCCCCC">
+                                <div style="width:68px;height:1;overflow:hidden;"></div>
+                                <span style="font-weight:bold;">房屋位置</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai地区', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+
+                                        <colgroup>
+                                            <col/>
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+                                        <tr>
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai地区" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai地区">
+
+                                        <div id="sosbai地区_0"
+                                             internalValue="0|||南山区"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '0|||南山区', '南山区');" nowrap>
+                                            南山区
+                                        </div>
+                                        <div id="sosbai地区_1"
+                                             internalValue="0|||宝安区"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '0|||宝安区', '宝安区');" nowrap>
+                                            宝安区
+                                        </div>
+                                        <div id="sosbai地区_2"
+                                             internalValue="0|||福田区"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '0|||福田区', '福田区');" nowrap>
+                                            福田区
+                                        </div>
+                                        <div id="sosbai地区_3"
+                                             internalValue="0|||罗湖区"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '0|||罗湖区', '罗湖区');" nowrap>
+
+                                            罗湖区
+                                        </div>
+                                        <div id="sosbai地区_4"
+                                             internalValue="0|||龙岗区"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '0|||龙岗区', '龙岗区');" nowrap>
+                                            龙岗区
+                                        </div>
+                                        <div id="sosbai地区_5"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai地区', '', '不限');" nowrap>
+                                            不限
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td class="sbarf" id="sbarf房型"
+                                name="sbarf" style="border-right:1px solid #CCCCCC">
+                                <div style="width:68px;height:1;overflow:hidden;"></div>
+                                <span style="font-weight:bold;">房型</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai房型', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+                                        <colgroup>
+                                            <col/>
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+
+                                        <tr>
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai房型" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai房型">
+                                        <div id="sosbai房型_0"
+                                             internalValue="0|||1室"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai房型', '0|||1室', '1室');" nowrap>
+                                            1室
+                                        </div>
+                                        <div id="sosbai房型_1"
+                                             internalValue="0|||2室"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai房型', '0|||2室', '2室');" nowrap>
+
+                                            2室
+                                        </div>
+                                        <div id="sosbai房型_2"
+                                             internalValue="0|||3室"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai房型', '0|||3室', '3室');" nowrap>
+                                            3室
+                                        </div>
+                                        <div id="sosbai房型_3"
+                                             internalValue="0|||4室"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai房型', '0|||4室', '4室');" nowrap>
+                                            4室
+                                        </div>
+                                        <div id="sosbai房型_4"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai房型', '', '不限');" nowrap>
+                                            不限
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="sbarf" id="sbarf面积"
+                                name="sbarf" style="border-right:1px solid #CCCCCC">
+                                <div style="width:68px;height:1;overflow:hidden;"></div>
+                                <span id="sbseb面积" class="sbseb">排序</span><b id="sbsm面积" class="sbsm"></b>
+                                <span style="font-weight:bold;">面积</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai面积', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+
+                                        <colgroup>
+                                            <col/>
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+                                        <tr>
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai面积" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai面积">
+
+                                        <div id="sosbai面积_0"
+                                             internalValue="1||30.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '1||30.0|', '30以下');" nowrap>
+                                            30以下
+                                        </div>
+                                        <div id="sosbai面积_1"
+                                             internalValue="3|30.0|50.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|30.0|50.0|', '30至50');" nowrap>
+                                            30至50
+                                        </div>
+                                        <div id="sosbai面积_2"
+                                             internalValue="3|50.0|70.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|50.0|70.0|', '50至70');" nowrap>
+                                            50至70
+                                        </div>
+                                        <div id="sosbai面积_3"
+                                             internalValue="3|70.0|80.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|70.0|80.0|', '70至80');" nowrap>
+
+                                            70至80
+                                        </div>
+                                        <div id="sosbai面积_4"
+                                             internalValue="3|80.0|90.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|80.0|90.0|', '80至90');" nowrap>
+                                            80至90
+                                        </div>
+                                        <div id="sosbai面积_5"
+                                             internalValue="3|90.0|100.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|90.0|100.0|', '90至100');" nowrap>
+                                            90至100
+                                        </div>
+                                        <div id="sosbai面积_6"
+                                             internalValue="3|100.0|200.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '3|100.0|200.0|', '100至200');" nowrap>
+                                            100至200
+                                        </div>
+
+                                        <div id="sosbai面积_7"
+                                             internalValue="2|200.0||"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '2|200.0||', '200以上');" nowrap>
+                                            200以上
+                                        </div>
+                                        <div id="sosbai面积_8"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai面积', '', '不限');" nowrap>
+                                            不限
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="sbarf" id="sbarf日期"
+                                name="sbarf" style="border-right:1px solid #CCCCCC">
+
+                                <div style="width:100px;height:1;overflow:hidden;"></div>
+                                <span id="sbseb日期" class="sbseb">排序</span><b id="sbsm日期" class="sbsm"></b>
+                                <span style="font-weight:bold;">更新时间</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai日期', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+                                        <colgroup>
+                                            <col/>
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+
+                                        <tr>
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai日期" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai日期">
+                                        <div id="sosbai日期_0"
+                                             internalValue="3|0.0|0.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai日期', '3|0.0|0.0|', ' 一天内');" nowrap>
+                                            一天内
+                                        </div>
+                                        <div id="sosbai日期_1"
+                                             internalValue="3|1.0|0.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai日期', '3|1.0|0.0|', ' 两天内');" nowrap>
+
+                                            两天内
+                                        </div>
+                                        <div id="sosbai日期_2"
+                                             internalValue="3|6.0|0.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai日期', '3|6.0|0.0|', '一周内');" nowrap>
+                                            一周内
+                                        </div>
+                                        <div id="sosbai日期_3"
+                                             internalValue="3|29.0|0.0|"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai日期', '3|29.0|0.0|', '一个月内');" nowrap>
+                                            一个月内
+                                        </div>
+                                        <div id="sosbai日期_4"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai日期', '', '不限');" nowrap>
+                                            不限
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="sbarf" id="sbarf来源"
+                                name="sbarf" >
+                                <div style="width:68px;height:1;overflow:hidden;"></div>
+                                <span style="font-weight:bold;">来源</span><div>
+                                    <table onclick="CALL('sh.Select.expandOptions', 'sbai来源', this);" class="sbasc sbwd" cellpadding="0" cellspacing="0">
+                                        <colgroup>
+                                            <col/>
+
+                                            <col style="width:14px;"/>
+                                        </colgroup>
+                                        <tr>
+                                            <td><input type="text" class="sbas" style="cursor:default" readonly id="sbai来源" maxlength=100 value="不限" internalValue="" unrestrictedValue="不限"/></td><td></td>
+                                        </tr>
+                                    </table>
+                                    <div class="csp cstf"
+                                         style="width:auto;" id="sossbai来源">
+                                        <div id="sosbai来源_0"
+                                             internalValue="0|||个人"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai来源', '0|||个人', '个人');" nowrap>
+                                            个人
+                                        </div>
+
+                                        <div id="sosbai来源_1"
+                                             internalValue="0|||中介"
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai来源', '0|||中介', '中介');" nowrap>
+                                            中介
+                                        </div>
+                                        <div id="sosbai来源_2"
+                                             internalValue=""
+                                             style="cursor: default; width:100%;"
+                                             onmouseover="CALL('sh.Ui.highlight', this)"
+                                             onmouseout="CALL('sh.Ui.cancelHighlight', this)"
+                                             onclick="CALL('sh.Select.onOptionClick', 'sbai来源', '', '不限');" nowrap>
+                                            不限
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="display:none;"></td>
+
+                        </tr>
+                    </tbody>
+                    <tbody id="spras">
+
+                        <tr id="sprr0"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt0">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -0" altPosition="-38px -0" id="sprrm0"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136364.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '0', this)">出租厚德品园南山南海大道与学府路交汇处4室2厅</a>
+
+                                <span class="WebSource"> -
+                                    <a id="sprrs0" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '0', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥3,800 </td><td>南山区 </td><td>4室2厅 </td><td>110 平米</td><td>4小时前 </td><td>中介 </td>
+                            <td style="display:none;">
+
+                                <input type="hidden" id="sprrsm0"
+                                       value="Google 生活信息:\x3Cbr\x3E出租厚德品园南山南海大道与学府路交汇处4室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:110\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:4室2厅\x3Cbr\x3E价格:￥3,800\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss0"
+                                       value="AKnkndVdi3IyDaqSbHXNUVz_aw9VUVl92A" />
+                                <input type="hidden" id="sprrl0"
+                                       value="22.524688:113.924521:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr1"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt1">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -19" altPosition="-38px -19" id="sprrm1"></div>
+
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46137066.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '1', this)">出租罗湖太白路百仕达花园三期5室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs1" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '1', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥7,500 </td><td>罗湖区 </td><td>5室2厅 </td><td>156 平米</td><td>4小时前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm1"
+                                       value="Google 生活信息:\x3Cbr\x3E出租罗湖太白路百仕达花园三期5室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:156\x3Cbr\x3E地区:罗湖区\x3Cbr\x3E房型:5室2厅\x3Cbr\x3E价格:￥7,500\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss1"
+                                       value="AKnkndWFI8SRr8KJKAlckVFqlpFQweo78Q" />
+                                <input type="hidden" id="sprrl1"
+                                       value="22.569444:114.133333:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr2"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt2">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -38" altPosition="-38px -38" id="sprrm2"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136996.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '2', this)">出租广博星海华庭后海大道与工业七路交汇处2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs2" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '2', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,800 </td><td>南山区 </td><td>2室2厅 </td><td>78 平米</td><td>4小时前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm2"
+                                       value="Google 生活信息:\x3Cbr\x3E出租广博星海华庭后海大道与工业七路交汇处2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:78\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥2,800\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss2"
+                                       value="AKnkndWk4YXfn-YjxSJRMWj_rHGAf0_JLA" />
+                                <input type="hidden" id="sprrl2"
+                                       value="22.497947:113.930197:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr3"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt3">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -57" altPosition="-38px -57" id="sprrm3"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46137635.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '3', this)">出租御龙居西乡大道以北，企龙路以东（邻近4室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs3" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '3', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥4,000 </td><td>宝安区 </td><td>4室2厅 </td><td>133 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm3"
+                                       value="Google 生活信息:\x3Cbr\x3E出租御龙居西乡大道以北，企龙路以东（邻近4室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:133\x3Cbr\x3E地区:宝安区\x3Cbr\x3E房型:4室2厅\x3Cbr\x3E价格:￥4,000\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss3"
+                                       value="AKnkndWq34i-sEyPMQfjFwgI-VMFhZy6Bw" />
+                                <input type="hidden" id="sprrl3"
+                                       value="22.588889:113.891667:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr4"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt4">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136274.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '4', this)">出租华昱苑人民路与建达路交汇处2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs4" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '4', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥1,200 </td><td>宝安区 </td><td>2室2厅 </td><td>80 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm4"
+                                       value="Google 生活信息:\x3Cbr\x3E出租华昱苑人民路与建达路交汇处2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:80\x3Cbr\x3E地区:宝安区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥1,200\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss4"
+                                       value="AKnkndUnSdD7r_d27duD9ux9k-YuxYKK0A" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr5"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt5">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -95" altPosition="-38px -95" id="sprrm5"></div>
+
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136202.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '5', this)">出租福田香蜜湖侨香路梅林水厂旁近沃尔玛3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs5" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '5', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥3,000 </td><td>福田区 </td><td>3室2厅 </td><td>100 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm5"
+                                       value="Google 生活信息:\x3Cbr\x3E出租福田香蜜湖侨香路梅林水厂旁近沃尔玛3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:100\x3Cbr\x3E地区:福田区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥3,000\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss5"
+                                       value="AKnkndWoXsCjS7n60uT5BZU6E9w2OggYMQ" />
+                                <input type="hidden" id="sprrl5"
+                                       value="22.547222:114.029167:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr6"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt6">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -114" altPosition="-38px -114" id="sprrm6"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136328.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '6', this)">出租天骄世家宝城76区,锦花路与西乡大道3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs6" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '6', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,000 </td><td>宝安区 </td><td>3室2厅 </td><td>98 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm6"
+                                       value="Google 生活信息:\x3Cbr\x3E出租天骄世家宝城76区,锦花路与西乡大道3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:98\x3Cbr\x3E地区:宝安区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥2,000\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss6"
+                                       value="AKnkndWJaGBP82RfpOAO1LQYmJL8Bn7i7A" />
+                                <input type="hidden" id="sprrl6"
+                                       value="22.586111:113.8875:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr7"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt7">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -133" altPosition="-38px -133" id="sprrm7"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46137526.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '7', this)">出租祥云天都世纪福田区滨河大道南侧，新洲2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs7" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '7', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥3,500 </td><td>福田区 </td><td>2室2厅 </td><td>85 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm7"
+                                       value="Google 生活信息:\x3Cbr\x3E出租祥云天都世纪福田区滨河大道南侧，新洲2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:85\x3Cbr\x3E地区:福田区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥3,500\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss7"
+                                       value="AKnkndW5HgLR0Td_xBbEG-iwujvztaiZTg" />
+                                <input type="hidden" id="sprrl7"
+                                       value="22.52115:114.042678:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr8"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt8">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -152" altPosition="-38px -152" id="sprrm8"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136298.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '8', this)">出租苹果园龙华镇人民南路2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs8" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '8', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥1,800 </td><td>宝安区 </td><td>2室2厅 </td><td>55 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm8"
+                                       value="Google 生活信息:\x3Cbr\x3E出租苹果园龙华镇人民南路2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:55\x3Cbr\x3E地区:宝安区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥1,800\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss8"
+                                       value="AKnkndWiSfp4OGUUYjrLj5PFu9ztJI2jTg" />
+                                <input type="hidden" id="sprrl8"
+                                       value="22.636111:114.025:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr9"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt9">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -171" altPosition="-38px -171" id="sprrm9"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46137145.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '9', this)">出租雍翠豪园 罗湖莲塘国威路1室1厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs9" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '9', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥1,500 </td><td>罗湖区 </td><td>1室1厅 </td><td>45 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm9"
+                                       value="Google 生活信息:\x3Cbr\x3E出租雍翠豪园 罗湖莲塘国威路1室1厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:45\x3Cbr\x3E地区:罗湖区\x3Cbr\x3E房型:1室1厅\x3Cbr\x3E价格:￥1,500\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss9"
+                                       value="AKnkndWeIi-iMnNo5EvTAMlhJKRfW4Gccw" />
+                                <input type="hidden" id="sprrl9"
+                                       value="22.564056:114.176477:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr10"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt10">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136754.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '10', this)">出租城龙花园龙岗吉祥路城龙花园3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs10" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '10', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,000 </td><td>龙岗区 </td><td>3室2厅 </td><td>116 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm10"
+                                       value="Google 生活信息:\x3Cbr\x3E出租城龙花园龙岗吉祥路城龙花园3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:116\x3Cbr\x3E地区:龙岗区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥2,000\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss10"
+                                       value="AKnkndVZv4IuJmxFlQBlomwgSveDAbL5hA" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr11"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt11">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+                                </div>
+
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46136501.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '11', this)">出租2300元全家私家电1室1厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs11" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '11', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,300 </td><td>罗湖区 </td><td>1室1厅 </td><td>45 平米</td><td>4小时 1分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm11"
+                                       value="Google 生活信息:\x3Cbr\x3E出租2300元全家私家电1室1厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:45\x3Cbr\x3E地区:罗湖区\x3Cbr\x3E房型:1室1厅\x3Cbr\x3E价格:￥2,300\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss11"
+                                       value="AKnkndXs7oXoKyXCa1yL4Yj47yIM2u8YcA" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr12"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt12">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -228" altPosition="-38px -228" id="sprrm12"></div>
+
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46133187.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '12', this)">出租桃源村北环路与龙珠大道的交界处2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs12" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '12', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,200 </td><td>南山区 </td><td>2室2厅 </td><td>64 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm12"
+                                       value="Google 生活信息:\x3Cbr\x3E出租桃源村北环路与龙珠大道的交界处2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:64\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥2,200\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss12"
+                                       value="AKnkndXUMTYBHj__tcYj9A1PDtdIyix3BQ" />
+                                <input type="hidden" id="sprrl12"
+                                       value="22.563889:113.966667:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr13"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt13">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -247" altPosition="-38px -247" id="sprrm13"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46133270.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '13', this)">出租福田区福民路与新洲路交界处2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs13" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '13', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,700 </td><td>福田区 </td><td>2室2厅 </td><td>78 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm13"
+                                       value="Google 生活信息:\x3Cbr\x3E出租福田区福民路与新洲路交界处2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:78\x3Cbr\x3E地区:福田区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥2,700\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss13"
+                                       value="AKnkndU3pnp-BTlQo541FQz4O6vuNW9tmQ" />
+                                <input type="hidden" id="sprrl13"
+                                       value="22.522222:114.058333:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr14"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt14">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -266" altPosition="-38px -266" id="sprrm14"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46133826.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '14', this)">出租民田路与福华三路交介3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs14" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '14', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥6,500 </td><td>福田区 </td><td>3室2厅 </td><td>107 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm14"
+                                       value="Google 生活信息:\x3Cbr\x3E出租民田路与福华三路交介3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:107\x3Cbr\x3E地区:福田区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥6,500\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss14"
+                                       value="AKnkndXOrZYg_RTaiQMYxGpMC47SMdHSAQ" />
+                                <input type="hidden" id="sprrl14"
+                                       value="22.530556:114.058333:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr15"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt15">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -285" altPosition="-38px -285" id="sprrm15"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46134176.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '15', this)">出租荟芳园南油大道3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs15" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '15', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥3,000 </td><td>南山区 </td><td>3室2厅 </td><td>120 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm15"
+                                       value="Google 生活信息:\x3Cbr\x3E出租荟芳园南油大道3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:120\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥3,000\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss15"
+                                       value="AKnkndXIEnatiEFmwcNtG4Ki2IDpnOogVw" />
+                                <input type="hidden" id="sprrl15"
+                                       value="22.5267:113.92906:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr16"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt16">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -304" altPosition="-38px -304" id="sprrm16"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46134408.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '16', this)">出租海王大厦创业路与南海大道交会处3室1厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs16" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '16', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥5,500 </td><td>南山区 </td><td>3室1厅 </td><td>114 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm16"
+                                       value="Google 生活信息:\x3Cbr\x3E出租海王大厦创业路与南海大道交会处3室1厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:114\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:3室1厅\x3Cbr\x3E价格:￥5,500\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss16"
+                                       value="AKnkndUNG_BHQjZQ5gQIvUVR8FGj4yMmeg" />
+                                <input type="hidden" id="sprrl16"
+                                       value="22.513889:113.925:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr17"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt17">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -323" altPosition="-38px -323" id="sprrm17"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46133314.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '17', this)">出租湖景花园罗湖区洪湖路32号2室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs17" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '17', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,200 </td><td>罗湖区 </td><td>2室2厅 </td><td>84 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm17"
+                                       value="Google 生活信息:\x3Cbr\x3E出租湖景花园罗湖区洪湖路32号2室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:84\x3Cbr\x3E地区:罗湖区\x3Cbr\x3E房型:2室2厅\x3Cbr\x3E价格:￥2,200\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss17"
+                                       value="AKnkndX6wfLzA5IutDCqDI6pq87COHYsfQ" />
+                                <input type="hidden" id="sprrl17"
+                                       value="22.558333:114.116667:0" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr18"
+                            class="cssf " style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt18">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:-19px -342" altPosition="-57px -342" id="sprrm18"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46133188.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '18', this)">出租√２３００元蜜园绿景新美域旁1室1厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs18" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '18', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,300 </td><td>福田区 </td><td>1室1厅 </td><td>46 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm18"
+                                       value="Google 生活信息:\x3Cbr\x3E出租√２３００元蜜园绿景新美域旁1室1厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:46\x3Cbr\x3E地区:福田区\x3Cbr\x3E房型:1室1厅\x3Cbr\x3E价格:￥2,300\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss18"
+                                       value="AKnkndV7QLRmO1V-b0go56ZcXDpH6v9rVg" />
+                                <input type="hidden" id="sprrl18"
+                                       value="22.52108:114.042946:1" />
+                            </td>
+                        </tr>
+
+
+                        <tr id="sprr19"
+                            class="cssf GrayRow" style="line-height:140%; border-right:1px solid #CCCCCC">
+                            <td id="sprrt19">
+                                <div style="float: left; vertical-align: middle; margin-right: 3px;">
+
+                                    <div style="width:19px;height:19px;overflow:hidden;background-image:url(/shenghuo/images/markers.gif);background-position:0 -361" altPosition="-38px -361" id="sprrm19"></div>
+                                </div>
+                                <a target="_blank" href="http://rent.sz.soufun.com/cz/cz_MLS_46134740.htm" onclick="CALL('sh.ClickTracker.trackPrimaryResultLink', '19', this)">出租后海统建楼南山区华明路后海第一、三统3室2厅</a>
+                                <span class="WebSource"> -
+                                    <a id="sprrs19" target="_blank" href="http://www.soufun.com" onclick="CALL('sh.ClickTracker.trackResultSource', '19', this)">soufun.com</a>
+                                </span>
+                            </td><td>￥2,300 </td><td>南山区 </td><td>3室2厅 </td><td>132 平米</td><td>4小时 19分钟前 </td><td>中介 </td>
+
+                            <td style="display:none;">
+                                <input type="hidden" id="sprrsm19"
+                                       value="Google 生活信息:\x3Cbr\x3E出租后海统建楼南山区华明路后海第一、三统3室2厅\x3Cbr\x3E来源:中介\x3Cbr\x3E面积:132\x3Cbr\x3E地区:南山区\x3Cbr\x3E房型:3室2厅\x3Cbr\x3E价格:￥2,300\x3Cbr\x3E" />
+                                <input type="hidden" id="sprrss19"
+                                       value="AKnkndX6PhR5rnidCLJZLEyc7TdW8tbQAQ" />
+                                <input type="hidden" id="sprrl19"
+                                       value="22.505556:113.929167:0" />
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <div id="sbso" class="csp cssf"
+                         style="width: 100px;">
+                    </div>
+
+                </table>
+                <div id="spnrs"></div>
+            </td>
+           
+        </tr>
+    </form>
+</table>
+</div>

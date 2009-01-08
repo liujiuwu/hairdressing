@@ -1,0 +1,24 @@
+<%= render :partial => "/shared/search_salons" %>
+<div class="col1" >
+  <div class="module">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="638" height="200">
+      <param name="movie" value="/images/main.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent">
+      <embed src="/images/main.swf" quality="high" wmode="transparent" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="638" height="200"></embed>
+    </object>
+  </div>
+  <div class="blank10"></div>
+  <div class="col1 module">	  
+    <div class="moduleTitle">
+      <div id="albumTitle">推荐美发店</div>
+      <div id="albumTags" class="moduleContent"></div>
+    </div>
+    <div class="main_module">
+      <%= render(:partial => "shared/salon",:locals => { :manager => false },:collection => @salons,:spacer_template => 'shared/spacer') %>
+    </div>
+  </div>
+</div>
+<div class="col2">
+   <%= render(:partial => "shared/side") %>
+</div>

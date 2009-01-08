@@ -1,0 +1,35 @@
+<%
+salon ||= user_salon
+%>
+<table width="100%" border="0" style="margin-bottom:10px">
+  <tr><td colspan="3"><span class="salon_title"><%= salon.name%></span></td></tr>
+  <tr><td colspan="3" class="salon_info"><span class="user"><%= link_to(display_name_for(salon.user),user_path(salon.user))%> 发布于<%= time_ago_in_words(salon.created_at)%></span> <span class="comment"><%= link_to("#{salon.comments.size}条评论",salon_path(salon)) %></span> <span class="view">有<%= salon.hits || 0 %>人浏览过</span></td></tr>
+  <tr>
+    <td colspan="3">
+      <table width="100%"><tr><td class="actions"><span><%= link_to('编辑',edit_user_salon_path(salon),:class =>"edit action")%></span><span><%= link_to('删除',[:user,salon],:confirm => '确定删除吗？',:method => :delete,:class => "destroy action") %></span></td></tr></table>
+    </td>
+  </tr>
+  <tr>
+    <td><%=salon_image(salon)%></td>
+    <td valign="top" width="100%">
+      <table>
+        <tr><td><span class="b">营业时间：</span><%= salon.business_hours%></td></tr>
+        <tr><td><span class="b">预约电话：</span><%= salon.telephone%></td></tr>
+        <tr><td><span class="b">所在城区：</span><%= salon.city_name%></td></tr>
+        <tr><td><span class="b">详细地址：</span><%= salon.address%></td></tr>  
+      </table>
+      <table class="items">
+        <tr><td><%=link_to '服务项目',user_salon_fwus_path(salon)%>(<%=salon.fwus_count%>) <%=link_to '活动信息',user_salon_flacks_path(salon)%>(<%=salon.flacks_count%>)</td></tr>
+      </table>
+    </td>
+    <td valign="top" width="10%">
+      <div class="digsquare dignum" id="<%="salon_vote_#{salon.id}"%>"><%= salon.votes_for %></div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"></td><td width="100%" style="text-align:center" onclick="hair.togger('salon_descript_<%=salon.id%>');">显示</td>
+  </tr>
+  <tr id="salon_descript_<%=salon.id%>" style="display:none">
+    <td colspan="3" class="description"><%= salon.description %></td>
+  </tr>
+</table>

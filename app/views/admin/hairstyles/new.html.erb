@@ -1,0 +1,9 @@
+<table  cellpadding="0" cellspacing="0" border="0" class="toptable">
+  <tr>
+    <td width="150"><span class="font14 b">发型设计信息管理</span></td><td align="left" style="text-align: right"><a href="/admin/hairstyles/new">添加发型设计信息</a> &nbsp;<a href="/admin/hairstyles">发型设计信息管理</a>&nbsp;</td>
+  </tr>
+</table>
+<%= error_messages_for :hairstyle %>
+<% form_for(:hairstyle,@hairstyle,:url => admin_hairstyles_path) do |f| %>
+<%= render :partial => 'form',:locals => {:f => f}%>
+<% end %>

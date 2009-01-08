@@ -1,0 +1,112 @@
+/********************************* LiveValidation *************************************/
+
+.LV_valid {
+    color:#00CC00;
+}
+	
+.LV_invalid {
+    color:#FF0000;
+}
+	
+.LV_validation_message{
+    font-weight:bold;
+    margin:0 0 0 5px;
+}
+    
+.LV_valid_field,
+input.LV_valid_field:hover, 
+input.LV_valid_field:active,
+textarea.LV_valid_field:hover, 
+textarea.LV_valid_field:active,
+.fieldWithErrors input.LV_valid_field,
+.fieldWithErrors textarea.LV_valid_field {
+    border: 2px solid #00CC00;
+}
+    
+.LV_invalid_field, 
+input.LV_invalid_field:hover, 
+input.LV_invalid_field:active,
+textarea.LV_invalid_field:hover, 
+textarea.LV_invalid_field:active,
+.fieldWithErrors input.LV_invalid_field,
+.fieldWithErrors textarea.LV_invalid_field {
+    border: 2px solid #FF0000;
+}
+
+
+/********** Error reporting ************/
+
+.fieldWithErrors, .fieldWithNoErrors, .fieldWithNoActivityYet {
+  /*padding: 2px;*/
+  background-color: transparent;
+  /*display: table;*/
+  /*float:left;*/
+  /*margin-bottom:10px;*/
+}
+
+.fieldWithErrors {
+  /*background-color: #ffcccc;*/
+}
+
+.fieldWithNoErrors {
+  /*background-color: #C6E0B0;*/
+}
+
+.fieldWithErrors input, .fieldWithErrors select, .fieldWithErrors textarea {
+  /*background-color: #ffcccc;*/
+  border:2px solid #F00;
+}
+
+p.matchFieldWithErrorReporting {
+  padding-left:2px;
+}
+
+#errorExplanation {
+  /*width: 98%;*/
+  border: 2px solid #ffcccc;
+  padding: 7px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  color: #ff0000;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 110%;
+  /*margin: -7px;*/
+  background-color: #fff;
+  color: #ff0000;
+  margin:0;
+  letter-spacing:-1px;
+}
+
+#errorExplanation ul {
+  padding-left:5px;
+}
+
+#errorExplanation p {
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: none;
+}
+
+ /* Rails 错误信息样式 */
+/*.errorExplanation{background:white;color:red;font-weight:normal;padding:0;margin-bottom:5px;}
+.errorExplanation h2{background:white;padding:2px;color:red;font-weight:blod;font-size:14px;margin:0;}
+.errorExplanation li{margin-left:10px;padding:0;}
+.fieldWithErrors{background:white;}*/
+/*.fieldWithErrors input{border:2px solid #F00;}*/
+/*.formError{padding-left:10px;color:red;}*/
+.error{color:red;padding:10px 0;padding-left:10px;border:2px solid #ffcccc;}
+
+.flashnotice{padding: 3px;  margin:10px 0; clear: both; background: #555;}
+.flasherror{padding: 5px;  margin:10px 0;  clear: both; background: #e22c6f; color: white;}
+
+#comment_error{margin-top:5px;color:red;padding:10px 0;padding-left:10px;border:2px solid #ffcccc;display:none}
+.rborder{border:2px solid red;}

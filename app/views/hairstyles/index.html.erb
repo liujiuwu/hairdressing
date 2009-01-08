@@ -1,0 +1,18 @@
+<div class="col1" >
+  <div class="col1 module">	  
+    <div class="moduleTitle">
+      <div id="albumTitle">发型设计</div>
+      <div id="albumTags" class="moduleContent"></div>
+    </div>
+    <div class="main_module">
+      <ul>
+        <% @hairstyles.each do |hairstyle| -%>
+        <li><a href="/hairstyles/<%=hairstyle.id%>" title="<%=hairstyle.title%>"><%=hairstyle.title%></a>&nbsp;&nbsp;(<%= time_ago_in_words(hairstyle.created_at)%>&nbsp;&nbsp;人气：<%=hairstyle.hits%>)</li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col2">
+  <%= render(:partial => "shared/side") %>
+</div>

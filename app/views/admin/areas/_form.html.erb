@@ -1,0 +1,17 @@
+<%= error_messages_for :area %>
+<% form_for([:admin,@area]) do |f| %>
+  <table class="form" >
+    <tr>
+      <td class="field">名称：</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td class="field">代码：</td>
+      <td><%= f.text_field :code %></td>
+    </tr>
+    <tr>
+      <td class="field"></td>
+      <td><%= f.submit "保存" %></td>
+    </tr>
+  </table>
+<% end %>

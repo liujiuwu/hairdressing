@@ -1,0 +1,18 @@
+<% title("美发店") -%>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/salon",:locals => { :manager => false }) %>
+    <%= render(:partial => "shared/spacer") %>
+    <div class="comment_bar">共有<%=@salon.comments.size%>条评论 <% unless logged_in? %><span style="font-size:12px;font-weight:normal;">您还没有登陆，请<a href="/login">登录</a>后发表评论</span><% else %><a href="#comment_comment">发表评论</a><% end %></div>
+    <div id="<%= "#{dom_id(@salon)}_comments" %>">
+      <%= render(:partial => "shared/comment",:collection => @comments) %>
+      <div class="pagination_bar"><%= xwill_paginate @comments %></div>
+    </div>
+    <% if logged_in? %>
+      <%= render(:partial => @comment = Comment.new)%>
+    <% end  %>
+  </div>
+</div>
+
+

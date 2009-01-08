@@ -1,0 +1,26 @@
+<%
+info ||= @info
+%>
+<% title(info.title) %>
+<div class="module">
+    <div class="moduleTitle" style="text-align:center"><%= yield(:title) %></div>
+    <div class="main_module">
+        <div class="news_info"><span>发布时间：<%=dtfmt(info.created_at)%></span><span>浏览量：已有 <%=info.hits%> 人观注过</span></div>
+        <div class="description">
+            <%= info.description %>
+            <div class="dashed_line" style="padding-top:10px"></div>
+            <ul style="padding:0;margin:0">
+                <li class="shipmethor" id="propertyList"></li>
+                <li class="shipcom">发 布 人：<span><%=info.user.login%><%=info.user.name%></span></li>
+                <li class="shipcom">联 系 人：<span><%=info.name%></span></li>
+                <li class="shipcom">电　　话：<span><%=info.telephone%></span></li>
+                <li class="shipcom">手　　机：<span><%=info.mobile%></span></li>
+                <li class="shipcom">Email地址：<span><%=info.email%></span></li>
+                <li class="shipcom">地　　址：<span><%=info.address%></span></li>
+                <li class="shipcom">邮　　编：<span><%=info.postcode%></span></li>
+                <li class="shipcom">发布时间：<span><%=dtfmt(info.created_at)%></span></li>
+                <li class="shipcom">有 效 期：<span><%=period_of_validity_name(info)%></span></li>
+            </ul>
+        </div>
+    </div>
+</div>

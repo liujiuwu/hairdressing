@@ -1,0 +1,16 @@
+<%
+salon ||= @salon
+%>
+<% title("我的美发店") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/salon",:locals =>{ :manager => true,:salon => salon}) %>
+    <%= render(:partial => "shared/spacer") %>
+    <div class="user_manager_title">服务项目</div>
+    <div class="actions"><%= link_to '创建',new_user_salon_fwu_path(salon),:class => "add" %></div>
+    <%= render(:partial => "shared/fwu",:locals => { :user_admin => true},:collection => @fwus,:spacer_template => 'shared/spacer') %>
+    <div class="pagination_bar"><%= xwill_paginate @fwus %></div>
+</div>
+</div>
+

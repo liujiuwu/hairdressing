@@ -1,0 +1,13 @@
+<table class="stripeMe list">
+  <tr>
+    <th>标题</th>
+    <th></th>
+  </tr>
+<% @hairstyles.each do |hairstyle| %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%=link_to(hairstyle.title,hairstyle_path(hairstyle),:target => '_blank') %></td>
+    <td><%= link_to '编辑', edit_admin_hairstyle_path(hairstyle) %> <%= link_to '删除', [:admin,hairstyle], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @hairstyles %></div>

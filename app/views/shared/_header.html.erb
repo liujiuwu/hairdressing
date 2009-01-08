@@ -1,0 +1,27 @@
+<script>var code = "<%=  params[:code] || display_current_city.code %>";</script>
+<div class="area">
+  <div id="header">
+    <div id="pageTopText">
+      <span class="welcome"><%= display_name%></span>
+      <% if logged_in? ; if current_user.user_type=="1" %><span class="split_line">|</span><%= link_to '我的美发店',user_salons_path %><span class="split_line">|</span><% end %><a href="/user/profile">个人设置</a><span class="split_line">|</span><a href="/logout">安全退出</a><% end %><% unless logged_in? %><span class="nologin">您还没有登录！</span><a href="/login">登录</a><span class="split_line">|</span><a href="/signup">免费注册</a><% end %><span class="split_line">|</span><a href="/about">我有话要说</a><span class="split_line">|</span>当前地区：<span class="currentCity" id="currentCity"><%= display_current_city_name %></span>[<a id="select_area_bt" href="#TB_inline?height=205&width=465&inlineId=select_area" class="thickbox">切换地区</a>]<%=out_select_area_html("select_area")%>
+    </div>
+  </div>
+</div>
+<div id="top">
+  <div class="area">
+    <div id="logo"><img src="/images/logo.gif"/></div>
+    <div id="pageNav">
+      <ul id="navTabs">
+        <li id="page_home"><a href="/">首页</a></li>
+        <li id="page_salons"><a href="/salons">美发店</a></li>
+        <li id="page_hairstyles"><a href="/hairstyles">发型设计</a></li>
+        <li id="page_flacks"><a href="/flacks">活动信息</a></li>
+        <li id="page_businesses"><a href="/businesses">商业合作</a></li>
+        <li id="page_jobs"><a href="/jobs">人才招聘</a></li>
+        <li id="page_infos"><a href="/infos">分类信息</a></li>
+        <li id="page_user"><a href="/user">个人中心</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="blank5"></div>

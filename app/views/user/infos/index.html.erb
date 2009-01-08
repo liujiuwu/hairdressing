@@ -1,0 +1,28 @@
+<% title("分类信息管理") %>
+<div class="module">
+    <div class="moduleTitle"><%= yield(:title) %></div>
+    <div class="main_module">
+        <table class="list" cellspacing="0">
+            <tr>
+                <th width="37%">标题</th>
+                <th width="10%">类型</th>
+                <th width="10%">地区</th>
+                <th width="10%">有效期</th>
+                <th width="10%">发布日期</th>
+                <th width="18%">&nbsp;</th>
+            </tr>
+            <%@infos.each do |info| %>
+            <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+                <td><%=info.title%></td>
+                <td><%=info.info_type_name%></td>
+                <td><%=info.city_name%></td>
+                <td><%=period_of_validity_name(info)%></td>
+                <td><%= dtfmt(info.created_at)%></td>
+                <td class="actions"><span><%= link_to('编辑',edit_user_info_path(info),:class =>"edit action")%></span><span><%= link_to('删除',[:user,info],:confirm => '确定删除吗？',:method => :delete,:class => "destroy action") %></span></td>
+            </tr>
+            <% end %>
+        </table>
+        <div class="pagination_bar"><%= xwill_paginate @infos %></div>
+    </div>
+</div>
+

@@ -1,0 +1,12 @@
+<div class="search_module">
+  <% form_for(:salan,:url => search_salons_path,:html => { :method => :get,:id => 'searchform'}) do |f| %>
+    <table>
+      <tr>
+        <td class="field" align="right" style="padding-left:5px;"><label for="query" style="color:#27A909;">美发店名称：</label></td>
+        <td><%= text_field_tag :query,params[:query],:style => "width:350px;" %></td>
+        <td style="padding-top:5px;"><img src="/images/search_bt.gif" class="image_button" id="search_bt"/></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+<div class="blank5"></div>

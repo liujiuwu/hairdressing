@@ -1,0 +1,14 @@
+<%
+salon ||= @salon
+%>
+<% title("美发店") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/salon",:locals =>{ :manager => false,:salon => salon}) %>
+    <%= render(:partial => "shared/spacer") %>
+    <div class="user_manager_title">活动信息</div>
+    <%= render(:partial => "shared/flack",:locals => { :user_admin => false},:collection => @flacks,:spacer_template => 'shared/spacer') %>
+    <div class="pagination_bar"><%= xwill_paginate @flacks %></div>
+</div>
+</div>

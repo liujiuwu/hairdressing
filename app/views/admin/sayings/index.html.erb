@@ -1,0 +1,17 @@
+<table class="stripeMe list">
+  <tr>
+    <th width="100">姓名</th>
+    <th width="200">联系方式</th>
+    <th>内容</th>
+    <th width="50"></th>
+  </tr>
+<% @sayings.each do |saying| %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%=saying.name%></td>
+    <td><%=saying.contact%></td>
+    <td><%=saying.content%></td>
+    <td><%= link_to '删除', [:admin,saying], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @sayings %></div>

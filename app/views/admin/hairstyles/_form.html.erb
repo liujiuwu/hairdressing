@@ -1,0 +1,23 @@
+<% content_for :header do -%>
+  <%= javascript_include_tag :fckeditor %>
+<% end %>
+<table class="form" >
+  <tr>
+    <td class="field">标题：</td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <td class="field">来源：</td>
+    <td><%= f.text_field :from %></td>
+  </tr>
+  <tr>
+    <td class="field">内容：</td>
+    <td>
+      <%= fckeditor_textarea("hairstyle",:content, :toolbarSet => 'Simple', :width => '100%', :height => '400px') %>
+    </td>
+  </tr>
+  <tr>
+    <td class="field"></td>
+    <td><%= f.submit "保存" %></td>
+  </tr>
+</table>

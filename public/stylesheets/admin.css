@@ -1,0 +1,108 @@
+body,td,div,p
+{
+    color:#000000;font:normal 12px/20px Tahoma,Verdana,sans-serif;
+}
+p,form{margin:0px; padding:0px;}
+body{ margin:5px 5px; padding:0px;}
+
+a{color:#1A438E;text-decoration:none;}
+a:hover{color:#FF0000;text-decoration:none;}
+
+.font14{font-size:14px;}
+.b{font-weight:bold;}
+
+.toptable{width:100%;}
+.toptable td{padding:5px;}
+.grid{border:1px #B3CDE8 solid;border-collapse:collapse;}
+.fixed{table-layout:fixed;overflow:hidden;}
+
+
+#info_content ul{margin:5px;}
+.menu_panel{margin:5px;}
+.menu_panel li{margin:2px 0;}
+.menu_item {margin:0 5px;}
+.menu_item li{list-style:square inside;}
+
+table.form {font-size: 12px;color: black;border-collapse:collapse;border: 1px solid #b6cae3;padding:0px;width:100%;empty-cells:show;}
+.form td {font-size:12px;padding:2px 5px;background:#FFFFFF;border-bottom:1px solid #d0d0d0;}
+.form td.field{width:120px;text-align:right;}
+.form-line-odd{background-color:#FFFFFF;}
+.form-line-even{background-color:#F1FCFF;}
+
+.wrap{padding:5px 10px;}
+
+.activate_yes{color:green;}
+.activate_no{color:red;}
+.enable_yes{color:green;}
+.enable_no{color:red;}
+
+.pagination {padding: 3px;margin: 3px;float:right;}
+.pagination a {padding: 3px 5px;margin: 3px;border: 1px solid #aaaadd;text-decoration: none;color: #000099;background-color: #FFFFFF;}
+.pagination a:hover, .pagination a:active {border: 1px solid #000099;color: #000;}
+.pagination span.current {padding: 3px 5px; margin: 3px;border: 1px solid #000099;font-weight: bold;background-color: #000099;color: #FFF;}
+.pagination span.disabled {padding: 3px 5px;margin: 3px;border: 1px solid #eee;color: #ddd;background-color: #FFFFFF;}
+
+.face{background:#FFF;text-align:center;padding:5px;border:1px solid #ccc;margin:0px;width:48px;height:48px;}
+
+table.list {border-collapse: collapse;width: 100%;font-size: 12px;}
+table.list th {background: #3e83c9;color: #fff;font-weight: bold;padding: 2px 11px;text-align: left;border-right: 1px solid #fff;}
+table.list td {padding: 2px 11px;border-bottom: 1px solid #95bce2;}
+table.list tr.alt td {background: #ecf6fc;}
+table.list tr.over td {background: #bcd4ec;}
+
+.button { background: #79BB16 url(../images/button_bg.gif) repeat-x; border:1px solid #669933; color:#FFFFFF; font-weight:bold; font-size: 120%; text-align:center; text-decoration:none; padding: 2px 16px; cursor: pointer; }
+.tool_bar{margin-bottom:5px;}
+
+.arrowlistmenu{
+width: 150px; /*width of accordion menu*/
+}
+
+.arrowlistmenu .menuheader{ /*CSS class for menu headers in general (expanding or not!)*/
+font: bold 14px Arial;
+color: white;
+background: black url(../images/titlebar.png) repeat-x center left;
+margin-bottom: 10px; /*bottom spacing between header and rest of content*/
+text-transform: uppercase;
+padding: 4px 0 4px 10px; /*header text is indented 10px*/
+margin:0;
+cursor: hand;
+cursor: pointer;
+}
+
+.arrowlistmenu .openheader{ /*CSS class to apply to expandable header when it's expanded*/
+background-image: url(../images/titlebar-active.png);
+}
+
+.arrowlistmenu ul{ /*CSS for UL of each sub menu*/
+list-style-type: none;
+margin: 0;
+padding: 0;
+margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+
+.arrowlistmenu ul li{
+padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+
+.arrowlistmenu ul li a{
+color: #A70303;
+background: url(../images/arrowbullet.png) no-repeat center left; /*custom bullet list image*/
+display: block;
+padding: 2px 0;
+padding-left: 19px; /*link text is indented 19px*/
+text-decoration: none;
+font-weight: bold;
+border-bottom: 1px solid #dadada;
+font-size: 12px;
+}
+
+.arrowlistmenu ul li a:visited{
+color: #A70303;
+}
+
+.arrowlistmenu ul li a:hover{ /*hover state CSS*/
+color: #A70303;
+background-color: #F3F3F3;
+}
+
+

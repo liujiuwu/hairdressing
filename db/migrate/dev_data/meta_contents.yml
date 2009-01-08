@@ -1,0 +1,62 @@
+a0:
+    meta_type: sex
+    meta_name: 女
+    meta_code: 0
+    remark: 性别
+a1:
+    meta_type: sex
+    meta_name: 男
+    meta_code: 1
+    remark: 性别
+
+b0:
+    meta_type: info_type
+    meta_name: 转让
+    meta_code: 0
+    remark: 信息类型
+b1:
+    meta_type: info_type
+    meta_name: 合作
+    meta_code: 1
+    remark: 信息类型
+b2:
+    meta_type: info_type
+    meta_name: 招聘
+    meta_code: 2
+    remark: 信息类型
+b3:
+    meta_type: info_type
+    meta_name: 求职
+    meta_code: 3
+    remark: 信息类型
+b4:
+    meta_type: info_type
+    meta_name: 优惠活动
+    meta_code: 4
+    remark: 信息类型
+    
+c0:
+    meta_type: info_period_of_validity
+    meta_name: 3天
+    meta_code: 3
+    remark: 信息有效期
+c1:
+    meta_type: info_period_of_validity
+    meta_name: 7天
+    meta_code: 7
+    remark: 信息有效期
+c2:
+    meta_type: info_period_of_validity
+    meta_name: 15天
+    meta_code: 15
+    remark: 信息有效期
+c3:
+    meta_type: info_period_of_validity
+    meta_name: 30天
+    meta_code: 30
+    remark: 信息有效期
+c4:
+    meta_type: info_period_of_validity
+    meta_name: 60天
+    meta_code: 60
+    remark: 信息有效期

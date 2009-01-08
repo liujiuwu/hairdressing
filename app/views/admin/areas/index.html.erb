@@ -1,0 +1,15 @@
+<table class="stripeMe list">
+  <tr>
+    <th>名称</th>
+    <th>代码</th>
+    <th></th>
+  </tr>
+<% for area in @areas %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%=h area.name %></td>
+    <td><%=h area.code %></td>
+    <td><%= link_to '编辑', edit_admin_area_path(area) %> <%= link_to '删除', [:admin,area], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @areas %></div>

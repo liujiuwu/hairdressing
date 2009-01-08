@@ -1,0 +1,25 @@
+<table class="stripeMe list">
+  <tr>
+    <th>美发店名</th>
+    <th>店主</th>
+    <th>所在城市</th>
+    <th>点击</th>
+    <th>电话</th>
+    <th>创建时间</th>
+    <th>相关信息</th>
+    <th>操作</th>
+  </tr>
+<% @salons.each do |salon| %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%= link_to(salon.name,salon_path(salon),:target => 'blank',:title => "#{salon.address}")%></td>
+    <td><%=salon.user.login%></td>
+    <td><%=salon.city %></td>
+    <td><%=salon.hits%></td>
+    <td><%=salon.telephone%></td>
+    <td><%=salon.created_at%></td>
+    <td>评论(<%=salon.comments.size%>)&nbsp;|&nbsp;服务项目(<%=salon.fwus_count%>)&nbsp;|&nbsp;活动信息(<%=salon.flacks_count%>)&nbsp;|&nbsp;人才招聘(<%=salon.jobs_count%>)&nbsp;|&nbsp;商业合作(<%=salon.businesses_count%>)</td>
+    <td><%= link_to '删除', [:admin,salon], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @salons %></div>

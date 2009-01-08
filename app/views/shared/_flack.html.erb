@@ -1,0 +1,16 @@
+<div class="tip_box">
+  <% if user_admin %>
+  <table width="100%"><tr><td class="actions"><span><%= link_to('编辑',edit_user_salon_flack_path(@salon,flack),:class =>"edit action")%></span><span><%= link_to('删除',user_salon_flack_path(@salon,flack),:confirm => '确定删除吗？',:method => :delete,:class => "destroy action") %></span></td></tr></table>
+  <% end %>
+  <table width="100%" border="0">
+    <tr>
+      <td class="tip_box_title dashed_line"><span style="color:#ff5a00;padding-right:10px;"><%= (flack_counter+1) %>.</span><%= flack.name %></td> 
+    </tr>
+    <tr>
+      <td class="tip_box_description"><%= flack.description %></td>
+    </tr>
+     <tr>
+      <td style="text-align:right"><%= link_to(flack.salon.name,salon_path(flack.salon)) %> 于 <%= date_format(flack.created_at)%> 发布</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,22 @@
+<% title("用户登录") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <div id="reg">
+      <%= content_tag 'div', h(flash[:error]), :class => 'error' if flash[:error] %>
+      <% form_tag session_path do -%>
+        <ul class="form">
+          <li class="field">
+            <label for="login">用户名：</label><br />
+            <%= text_field_tag :login,params[:login],:style => 'width: 150px' %>
+          </li>
+          <li class="field">
+            <label for="password">密码：</label><br />
+            <%= password_field_tag :password,'',:style => 'width: 150px' %>
+          </li>
+          <li class="field"><input type="submit" name="ok" value="登录" class="button"/></li>
+        </ul>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<%
+salon ||= @salon
+%>
+<% title("人才招聘信息") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/job",:locals => { :user_admin => false},:collection => @jobs,:spacer_template => 'shared/spacer') %>
+    <div class="pagination_bar"><%= xwill_paginate @jobs %></div>
+  </div>
+</div>

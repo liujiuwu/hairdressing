@@ -1,0 +1,10 @@
+<% title("共找到&nbsp;#{@salons.total_entries}&nbsp;家美发店") %>
+<%= render :partial => "/shared/search_salons" %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/salon",:locals => { :manager => false },:collection => @salons,:spacer_template => 'shared/spacer') %>
+    <%= render(:partial => "shared/spacer") %>
+  </div>
+  <div class="pagination_bar"><%= xwill_paginate @salons %></div>
+</div>

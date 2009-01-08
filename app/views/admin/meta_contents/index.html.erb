@@ -1,0 +1,24 @@
+<table class="tool_bar">
+    <tr>
+        <td><input type="button" value="新增" onclick="location.href='/admin/meta_contents/new'"></td>
+    </tr>
+</table>
+<table class="stripeMe list">
+  <tr>
+    <th>类型</th>
+    <th>名称</th>
+    <th>代码</th>
+    <th>备注</th>
+    <th></th>
+  </tr>
+<% @meta_contents.each do |meta_content| %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%=meta_content.meta_type%></td>
+    <td><%=meta_content.meta_name%></td>
+    <td><%=meta_content.meta_code%></td>
+    <td><%=meta_content.remark%></td>
+    <td><%= link_to '编辑', edit_admin_meta_content_path(meta_content) %> <%= link_to '删除', [:admin,meta_content], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @meta_contents %></div>

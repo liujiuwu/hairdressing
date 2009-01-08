@@ -1,0 +1,71 @@
+<%
+user ||= @user
+%>
+<% title("我的个人资料") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <div class="reg_error">
+      <%= error_messages_for :user %>
+    </div>
+    <%= content_tag 'p', h(flash[:notice]), :class => 'notice' if flash[:notice] %>
+    <% form_for(user,:html => { :multipart => true }) do |f| %>
+      <ul class="form">
+        <li class="field">
+          <label for="user_display_name">您的昵称：</label><br />
+          <%= f.text_field :name,:style => "width:200px;" %>
+        </li>
+        <li class="helper">为自己设置个性昵称，让大家更容易记住您！</li>
+        <li class="field">
+          <label for="user_email">您的Email地址：</label><br />
+          <%= f.text_field :email,:style => "width:200px;" %>
+        </li>
+        <li class="field">
+          <label for="user_qq">QQ：</label><br />
+          <%= f.text_field :qq,:style => "width:200px;" %>
+        </li>
+        <li class="field">
+          <label for="user_msn">MSN：</label><br />
+          <%= f.text_field :msn,:style => "width:200px;" %>
+        </li>
+        <li class="field">
+          <label for="user_telephone">电话/手机：</label><br />
+          <%= f.text_field :telephone,:style => "width:200px;" %>
+        </li>
+        <li class="field" style="padding:10px 0;">
+          <label for="user_qq">您所在地区：</label><span id="area_name" style="color:red;"></span>&nbsp;&nbsp;
+          <a id="selectarea-btn" href="#TB_inline?height=205&width=465&inlineId=select_area" class="thickbox">选择地区...</a><%= f.hidden_field :whereareyou,:style => "width:200px;" %>
+        </li>
+        <% if user.logo %>
+          <li class="field"><table><tr valign="bottom"><td><div class="face_m"><%= image_tag(url_for_file_column(user, 'logo','medium'))%></div></td><td><div class="face" style="margin-left:10px;"><%= image_tag(url_for_file_column(user, 'logo','thumb'))%></div></td></tr></table></li>
+        <% end %>
+        <li class="field">
+          <label for="user_logo">用户头像：</label><br />
+          <%= file_column_field "user", "logo" %>
+        </li>
+        <li class="field">
+          <label for="user_intro">签 名：</label><br />
+          <%= f.text_area :intro,:cols => "50",:rows => "5" %>
+        </li>
+        <li class="field"><input type="submit" name="ok" value="保存" class="button"/></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+<script>
+    $(function(){
+        var user_whereareyou = $("#user_whereareyou").val();
+        if(user_whereareyou!=""){
+            var el = $("#area_name");
+            $.ajax({
+                url: "/areas/convert_code_name",
+                type: "post",
+                dataType: 'json',
+                data:{code:user_whereareyou},
+                ajaxStart:el.html("<img src=\"/images/loading.gif\"/>"),
+                error: function(){},
+                success: function(area){el.html(area.name);}
+            });
+        }
+    });
+</script>

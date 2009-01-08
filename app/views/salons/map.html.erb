@@ -1,0 +1,29 @@
+<div id="salon_map"></div>
+<% content_for :footer do -%>
+  <script language="javascript" src="http://api.51ditu.com/js/maps.js"></script>
+  <% unless @salon.markermap.blank? %>
+    <% markermap = @salon.markermap.split(",") %>
+    <script language="javascript">
+        function openInfoWin()
+        {
+            var win= this.openInfoWinHtml("<%= @salon.content %>");
+            win.setWidth(400);
+            win.setHeight(50);
+            win.setTitle('<%= link_to(@salon.name,salon_path(@salon)) %>');
+            win.closeInfoWindowWithMouse();
+        }
+        
+        function onLoad()
+        {
+            var maps = new LTMaps( "salon_map" );
+            var marker1 = new LTMarker( new LTPoint( <%=markermap[0]%>,<%=markermap[1]%> ) );
+            maps.centerAndZoom(new LTPoint(<%=markermap[0]%>,<%=markermap[1]%>),0);
+            maps.addControl(new LTStandMapControl());
+            maps.addControl(new LTOverviewMapControl(null,null,null,null,3));
+            maps.addOverLay( marker1 );
+            LTEvent.bind( marker1,"mouseover",marker1,openInfoWin );
+        }
+        $(function(){onLoad();});
+    </script>
+  <% end %>
+<% end %>

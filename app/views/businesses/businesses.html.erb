@@ -1,0 +1,11 @@
+<%
+salon ||= @salon
+%>
+<% title("商业合作") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/business",:locals => { :user_admin => false},:collection => @businesses,:spacer_template => 'shared/spacer') %>
+    <div class="pagination_bar"><%= xwill_paginate @businesses %></div>
+  </div>
+</div>

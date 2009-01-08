@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @hairstyle.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @hairstyle.content %>
+</p>
+
+<p>
+  <b>Hits:</b>
+  <%=h @hairstyle.hits %>
+</p>
+
+
+<%= link_to 'Edit', edit_hairstyle_path(@hairstyle) %> |
+<%= link_to 'Back', hairstyles_path %>

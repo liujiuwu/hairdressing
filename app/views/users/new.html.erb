@@ -1,0 +1,42 @@
+<% title("用户注册") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div id="reg">
+    <div class="tip" style="margin:5px auto;padding:10px;clear:both;border:1px solid #FFDA8C;background:#FFFFDD;">
+      欢迎新用户注册，请可以选择你希望注册的用户类型！<br/><hr style='border:1px dashed #86BCD4; height:0;'>
+      您只需填写简单的个人信息，即可成功注册爱美发网站用户。注册成功后，您可以继续设置个人详细信息。<a href="/login">已注册用户，请登录</a><br/>
+      <ul class="user_type">
+        <li><span>普通用户：</span>找美发店、关注活动信息、点评美发店、关注招聘信息等。</li>
+        <li><span>店主：</span>发布美发店、活动信息、人才招聘等相关信息。</li>
+        <li><span>设计师：</span>更多的工作机会哟！！！</li>
+      </ul>
+    </div>
+    <div class="reg_error">
+      <%= error_messages_for :user %>
+    </div>
+    
+    <% form_for :user, :url => users_path do |f| -%>
+      <ul class="form">
+        <li class="field"><label for="user_user_type">注册类型：</label><br/>
+          <%= f.select :user_type,User::USER_TYPES%>
+        </li>
+        <li class="field"><label for="user_login">用户名：</label><br/>
+          <%= f.text_field :login %>
+        </li>
+        <li class="helper">在您的用户名中只允许出现数字、字母，且至少有两位</li>
+        <li class="field"><label for="user_password">设定一个密码：</label><br/>
+          <%= f.password_field :password%>
+        </li>
+        <li class="field"><label for="user_password_confirmation">重输一次密码：</label><br/>
+          <%= f.password_field :password_confirmation%>
+        </li>
+        <li class="field"><label for="user_email">您的Email地址：</label><br/>
+          <%= f.text_field :email%>
+        </li>
+        <li class="helper">请使用有效Email地址，以方便联系或取回密码。</li>
+        <li class="field"><input type="submit" name="ok" value="确定注册"/></li>
+      </ul>
+      <div class="blank2"></div>
+    <% end -%>
+  </div>
+</div>

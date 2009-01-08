@@ -1,0 +1,61 @@
+<table width="100%" border="0" style="margin-bottom:8px">
+    <tr><td colspan="3"><span class="salon_title"><%= link_to(salon.name,salon_path(salon)) %></span></td></tr>
+    <tr>
+        <td colspan="3" class="salon_info">
+        <span class="user"><%= link_to(display_name_for(salon.user),user_show_path(salon.user.login))%> 发布于<%= time_ago_in_words(salon.created_at)%></span>
+        <span class="comment"><%= link_to("#{salon.comments.size}条评论",salon_path(salon))%></span>
+        <span class="view"><%= link_to("有#{salon.hits || 0}人浏览过",salon_path(salon)) %></span>
+        <% unless salon.markermap.blank? %>
+        <span class="map"><%= link_to '查看地图',map_salon_path(salon),:target => '_blank'%></span>
+        <% end %>
+        </td>
+    </tr>
+    <% if manager %>
+      <tr>
+          <td colspan="3">
+              <table width="100%"><tr><td class="actions"><span><%= link_to('编辑',edit_user_salon_path(salon),:class =>"edit action")%></span><span><%= link_to('删除',[:user,salon],:confirm => '确定删除吗？',:method => :delete,:class => "destroy action") %></span></td></tr></table>
+          </td>
+      </tr>
+    <% end %>
+    <tr>
+        <td class="salon_box"><%=salon_image(salon)%></td>
+        <td valign="top" width="100%">
+            <table border="0" cellspacing="3" cellpadding="0">
+                <tr><td><span class="fontGray">营业时间：</span><%= salon.business_hours%></td></tr>
+                <tr><td><span class="fontGray">预约电话：</span><%= salon.telephone%></td></tr>
+                <tr><td><span class="fontGray">所在城区：</span><%= salon.city_name%></td></tr>
+                <tr><td><span class="fontGray">详细地址：</span><%= salon.address%></td></tr>
+                <tr><td><span class="fontGray">交通路线：</span><%= salon.traffic%></td></tr>
+            </table>
+            <table class="items">
+                <tr>
+                    <td class="correlation">
+                        <% if manager %>
+                          <span class="fwus"><%=link_to '服务项目',user_salon_fwus_path(salon)%>(<%=salon.fwus_count%>)</span><span class="flacks"><%=link_to '活动信息',user_salon_flacks_path(salon) %>(<%=salon.flacks_count%>)</span><span class="jobs"><%=link_to '人才招聘',user_salon_jobs_path(salon)%>(<%=salon.jobs_count%>)</span><span class="businesses"><%=link_to '商业合作',user_salon_businesses_path(salon)%>(<%=salon.businesses_count%>)</span>
+                        <% else %>
+                          <span  class="fwus"><%=link_to '服务项目',salon_fwus_path(salon)%>(<%=salon.fwus_count%>)</span><span class="flacks"><%=link_to '活动信息',salon_flacks_path(salon)%>(<%=salon.flacks_count%>)</span><span class="jobs"><%=link_to '人才招聘',salon_jobs_path(salon)%>(<%=salon.jobs_count%>)</span><span class="businesses"><%=link_to '商业合作',salon_businesses_path(salon)%>(<%=salon.businesses_count%>)</span>
+                        <% end %>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td valign="top" align="center">
+            <div class="digsquare"><div class="dignum" id="<%="salon_vote_#{salon.id}"%>"><%= salon.votes_for %></div></div>
+            <% if logged_in? && salon.user != current_user%>
+              <div class="digsquare2">
+                  <% unless salon.voted_by_user?(current_user) %>
+                    <div id="salon_vote_link_<%=salon.id%>" class="dig_text"><%= link_to_remote("我推荐", :url=> vote_salon_path(salon),:method=>'post')%></div>
+                  <% else %>
+                    <div class="green dig_text">已推荐</div>
+                  <% end  %>
+              </div>
+            <% end  %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"></td><td style="text-align:center;"><img src="/images/display.gif" class="image_button" onclick="hair.toggle(this,'salon_descript_<%=salon.id%>');"/></td>
+    </tr>
+    <tr>
+        <td colspan="3"><div id="salon_descript_<%=salon.id%>" style="display:none" class="salon_description"><%= salon.description %></div></td>
+    </tr>
+</table>

@@ -1,0 +1,85 @@
+<% content_for :header do -%>
+  <script language="javascript" src="http://api.51ditu.com/js/maps.js"></script>
+  <script language="javascript" src="http://api.51ditu.com/js/ezmarker.js"></script>
+<% end %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= error_messages_for :salon %>
+    <% form_for([:user,@salon],:html => { :multipart => true }) do |f| %>
+      <ul class="form">   
+        <li class="field">
+          <label for="salon_name">美发店名：</label><br />
+          <%= f.text_field :name,:style => "width:400px;" %>
+        </li>
+        <li class="field">
+          <label for="salon_description">介绍：</label><br />
+          <%= f.text_area :description,:cols => "80",:rows => "10" %>
+        </li>
+        <li class="field">
+          <label for="salon_address">地址：</label><br />
+          <%= f.text_field :address,:style => "width:400px;" %>
+        </li>
+        <li class="field" style="padding:10px 0;">
+          <label for="salon_city">所在地区：</label><span id="area_name" style="color:red;"></span>&nbsp;&nbsp;
+          <a id="salon-selectarea-btn"  href="#TB_inline?height=205&width=465&inlineId=select_area" class="thickbox">选择地区...</a><%= f.hidden_field :city%>
+          <%= f.hidden_field :markermap %>
+          <script>
+              <!--
+              function setMapPoint(point,zoom)
+              {
+                  if(point){
+                      document.getElementById("salon_markermap").value = point.getLongitude()+","+point.getLatitude()+","+zoom;
+                  }
+              }
+              var ez=new LTEZMarker("ezmarker");
+              LTEvent.addListener(ez,"mark",setMapPoint);
+  <% unless @salon.markermap.blank? -%>
+    <% markermap = @salon.markermap.split(",") -%>
+    <% markermap = nil if @salon.markermap == ",,," -%>
+    <% unless markermap.nil? -%>
+          ez.setValue(new LTPoint(<%= markermap[0] %>,<%= markermap[1] %>),<%= markermap[2] %>);
+    <% end -%>
+  <% end -%>
+      //-->
+          </script>
+        </li>
+        <li class="field">
+          <label for="salon_telephone">电话：</label><br />
+          <%= f.text_field :telephone %>
+        </li>
+        <li class="field">
+          <label for="salon_business_hours">营业时间：</label><br />
+          <%= f.text_field :business_hours %>
+        </li>
+        <li class="field">
+          <label for="salon_traffic">交通路线：</label><br />
+          <%= f.text_area :traffic,:cols => "80",:rows => "5" %>
+        </li>
+        <li class="field">
+          <label for="salon_shop_front">门面图片：</label><br />
+          <%=salon_image(@salon)%>
+          <%= file_column_field "salon", "shop_front",:style => "width:400px;" %>
+        </li>
+        <li class="field"><input type="submit" name="ok" value="保存" class="button"/> <input type="button" name="goback" value="返回" class="button" onclick="location.href='/user/salons'"/></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+<script>
+    $(function(){
+        var code = $("#salon_city").val();
+        if(code!=""){
+            var el = $("#area_name");
+            $.ajax({
+                url: "/areas/convert_code_name",
+                type: "post",
+                dataType: 'json',
+                data:{code:code},
+                ajaxStart:el.html("<img src=\"/images/loading.gif\"/>"),
+                error: function(){},
+                success: function(area){el.html(area.name);}
+            });
+        }
+    });
+</script>

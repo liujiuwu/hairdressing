@@ -1,0 +1,25 @@
+<table class="stripeMe list">
+  <tr>
+    <th>注册用户名</th>
+    <th>用户类型</th>
+    <th>昵称</th>
+    <th>头像</th>
+    <th>Email</th>
+    <th>所在城市</th>
+    <th>注册时间</th>
+    <th>操作</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr class="<%=cycle('list-line-odd','list-line-even')%>">
+    <td><%=user.login %></td>
+    <td><%=user.user_type_name %></td>
+    <td><%=user.name%></td>
+    <td><%=user_logo(user)%></td>
+    <td><%=user.email%></td>
+    <td><%=user.whereareyou_name%></td>
+    <td><%=user.created_at%></td>
+    <td><%= link_to '删除', [:admin,user], :confirm => '确定删除吗？', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="paginate"><%= xwill_paginate @users %></div>

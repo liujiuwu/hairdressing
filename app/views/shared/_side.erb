@@ -1,0 +1,55 @@
+<div class="module" >
+    <div class="moduleTitle">最近注册的用户</div>
+    <div class="moduleContent">
+      <div class="content">
+        <table width="100%">
+          <% i = 0 -%>
+          <tr>
+            <% recent_users.each do |user| -%>
+              <% i += 1 -%>
+              <td align="center"><%=user_logo(user)%><a href="/user/name/<%=user.login%>" title="<%=user.name%>"><%=user.login%></a></td>
+            <% if i%4==0 %></tr><tr><% end %>
+          <% end -%>
+        </table>
+      </div>
+    </div>	
+  </div>
+  <div class="blank10"></div>
+  <div class="module side">
+    <div class="moduleTitle">网站新闻</div>
+    <div class="moduleContent">
+      <div class="content">
+        <ul>
+          <% recent_news.each do |news| -%>
+            <li><a href="/news/<%=news.id%>" title="<%=news.title%>" target="_blank"><%=truncate(news.title,18)%></a>&nbsp;<%= time_ago_in_words(news.created_at)%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="blank10"></div>
+  <div class="module side">
+    <div class="moduleTitle">最近发布的美发店</div>
+    <div class="moduleContent">
+      <div class="content">
+        <ul>
+          <% recent_salons.each do |salon| -%>
+            <li><a href="/salons/<%=salon.id%>" title="<%=salon.name%>"><%=truncate(salon.name,18)%></a>&nbsp;<%= time_ago_in_words(salon.created_at)%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <div class="blank10"></div>
+  <div class="module side">
+    <div class="moduleTitle">最近发布的发型设计</div>
+    <div class="moduleContent">
+      <div class="content">
+        <ul>
+          <% recent_hairstyles.each do |hairstyle| -%>
+            <li><a href="/hairstyles/<%=hairstyle.id%>" title="<%=hairstyle.title%>"><%=truncate(hairstyle.title,18)%></a>&nbsp;<%= time_ago_in_words(hairstyle.created_at)%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>

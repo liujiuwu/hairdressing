@@ -1,0 +1,13 @@
+<%
+news ||= @news
+%>
+<% title(news.title) %>
+<div class="module">
+  <div class="moduleTitle" style="text-align:center"><%= yield(:title) %></div>
+  <div class="main_module">
+    <div class="news_info"><span>发布时间：<%=date_format(news.created_at)%></span><span>阅读：<%=news.hits%></span></div>
+    <div class="description">
+      <%= news.content %>
+    </div>
+  </div>
+</div>

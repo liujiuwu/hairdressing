@@ -1,0 +1,27 @@
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= error_messages_for :fwu %>
+    <% form_for(:fwu,@fwu,:url => user_salon_fwus_path(@salon)) do |f| %>
+      <ul class="form">   
+        <li class="field">
+          <label for="fwu_name">服务项目名称：</label><br />
+          <%= f.text_field :name,:style => "width:300px;" %>
+        </li>
+        <li class="field">
+          <label for="fwu_description">服务项目描述：</label><br />
+          <%= f.text_area :description,:cols => "80",:rows => "5" %>
+        </li>
+        <li class="field">
+          <label for="fwu_price">价格：</label><br />
+          <%= f.text_field :price %>
+        </li>
+        <li class="field">
+          <label for="fwu_preferential_price">优惠价格：</label><br />
+          <%= f.text_field :preferential_price %>
+        </li>
+        <li class="field"><%= f.submit "保存" %> | <%=link_to '服务项目管理',user_salon_fwus_path(@salon)%></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

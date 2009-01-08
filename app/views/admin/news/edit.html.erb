@@ -1,0 +1,10 @@
+<table  cellpadding="0" cellspacing="0" border="0" class="toptable">
+  <tr>
+    <td width="100"><span class="font14 b">新闻管理</span></td><td align="left" style="text-align: right"><a href="/admin/news/new">添加新闻</a> &nbsp;<a href="/admin/news">新闻管理</a>&nbsp;</td>
+  </tr>
+</table>
+<%= error_messages_for :news %>
+<%# form_for(:news,@news,:url => admin_news_path(@news),:method => :put ) do |f| %>
+<% form_for([:admin,@news]) do |f| %>
+<%= render :partial => 'form',:locals => {:f => f}%>
+<% end %>

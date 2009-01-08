@@ -1,0 +1,72 @@
+<div class="module">
+    <div class="moduleTitle"><%= yield(:title) %></div>
+    <div class="main_module">
+        <% form_for([:user,@info]) do |f| %>
+          <%= f.error_messages %>
+          <ul class="form">
+              <li class="field">
+                  <label for="info_title">信息标题：</label><br />
+                  <%= f.text_field :title,:style => "width:300px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_info_type">类别：</label><br />
+                  <%=  f.select :info_type,Info.info_types,{:prompt => '-- 请选择 --'},{:style => "width:95px"}%>
+              </li>
+              <li class="field">
+                  <label for="info_period_of_validity">有效期：</label><br />
+                  <%=  f.select :period_of_validity,Info.period_of_validities,{:prompt => '-- 请选择 --'},{:style => "width:95px"}%>
+              </li>
+              <li class="field">
+                  <label for="info_city">地区：</label><span id="area_name" style="color:red;"></span>&nbsp;&nbsp;
+                  <a id="info-selectarea-btn"  href="#TB_inline?height=205&width=465&inlineId=select_area" class="thickbox">选择地区...</a><%= f.hidden_field :city%><span style="color:red;padding-left:15px">（如果不选择表示全国）</span>
+              </li>
+              <li class="field">
+                  <label for="info_content">信息内容：</label><br />
+                  <%= f.text_area :description,:cols => "80",:rows => "5" %>
+              </li>
+              <li class="field">
+                  <label for="info_name">联系人：</label><br />
+                  <%= f.text_field :name,:style => "width:150px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_telephone">联系电话：</label><br />
+                  <%= f.text_field :telephone,:style => "width:150px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_mobile">手机：</label><br />
+                  <%= f.text_field :mobile,:style => "width:150px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_email">Email地址：</label><br />
+                  <%= f.text_field :email,:style => "width:150px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_address">联系地址：</label><br />
+                  <%= f.text_field :address,:style => "width:300px;" %>
+              </li>
+              <li class="field">
+                  <label for="info_postcode">邮编：</label><br />
+                  <%= f.text_field :postcode,:style => "width:150px;" %>
+              </li>
+              <li class="field"><%= f.submit "保存" %></li>
+          </ul>
+        <% end %>
+    </div>
+</div>
+<script>
+    $(function(){
+        var code = $("#info_city").val();
+        if(code!=""){
+            var el = $("#area_name");
+            $.ajax({
+                url: "/areas/convert_code_name",
+                type: "post",
+                dataType: 'json',
+                data:{code:code},
+                ajaxStart:el.html("<img src=\"/images/loading.gif\"/>"),
+                error: function(){},
+                success: function(area){el.html(area.name);}
+            });
+        }
+    });
+</script>

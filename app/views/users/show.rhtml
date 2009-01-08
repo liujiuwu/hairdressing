@@ -1,0 +1,40 @@
+<%
+user ||= @user
+%>
+<% title("个人资料") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <ul class="form">
+      <li class="field">
+        <label>昵称：</label><br />
+        <%= user.name %>
+      </li>
+      <li class="field">
+        <label>Email地址：</label><br />
+        <%= user.email%>
+      </li>
+      <li class="field">
+        <label>QQ：</label><br />
+        <%= user.qq%>
+      </li>
+      <li class="field">
+        <label>MSN：</label><br />
+        <%= user.msn%>
+      </li>
+      <li class="field">
+        <label>电话/手机：</label><br />
+        <%= user.telephone%>
+      </li>
+      <% if user.logo %>
+        <li class="field"><label>头像：</label><br />
+        <table><tr valign="bottom"><td><div class="face_m"><%= image_tag(url_for_file_column(user, 'logo','medium'))%></div></td><td><div class="face" style="margin-left:10px;"><%= image_tag(url_for_file_column(user, 'logo','thumb'))%></div></td></tr></table>
+        </li>
+      <% end %>
+      <li class="field">
+        <label for="user_intro">签 名：</label><br />
+        <%= user.intro%>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<%= error_messages_for :hairstyle %>
+<% form_for([:admin,@hairstyle]) do |f| %>
+<%= render :partial => 'form',:locals => {:f => f}%>
+<% end %>

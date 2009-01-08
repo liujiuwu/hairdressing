@@ -1,0 +1,9 @@
+<% title("我的美发店") %>
+<div class="module">
+  <div class="moduleTitle"><%= yield(:title) %></div>
+  <div class="main_module">
+    <%= render(:partial => "shared/salon",:locals => { :manager => true },:collection => @salons,:spacer_template => 'shared/spacer') %>
+    <div class="pagination_bar"><%= xwill_paginate @salons %></div>
+  </div>
+</div>
+

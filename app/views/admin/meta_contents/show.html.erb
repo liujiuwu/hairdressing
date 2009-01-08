@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @meta_content.name %>
+</p>
+
+<p>
+  <b>Meta type:</b>
+  <%=h @meta_content.meta_type %>
+</p>
+
+<p>
+  <b>Meta code:</b>
+  <%=h @meta_content.meta_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_meta_content_path(@meta_content) %> |
+<%= link_to 'Back', meta_contents_path %>

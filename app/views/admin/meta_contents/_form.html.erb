@@ -1,0 +1,25 @@
+<% form_for([:admin,@meta_content]) do |f| %>
+<%= f.error_messages %>
+<table class="form" >
+  <tr>
+    <td class="field">类型：</td>
+    <td><%= f.text_field :meta_type %></td>
+  </tr>
+  <tr>
+    <td class="field">名称：</td>
+    <td><%= f.text_field :meta_name %></td>
+  </tr>
+  <tr>
+    <td class="field">代码：</td>
+    <td><%= f.text_field :meta_code %></td>
+  </tr>
+   <tr>
+    <td class="field">备注：</td>
+    <td><%= f.text_field :remark %></td>
+  </tr>
+  <tr>
+    <td class="field"></td>
+    <td><%= f.submit "保存" %></td>
+  </tr>
+</table>
+<% end %>
